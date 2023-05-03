@@ -23,7 +23,7 @@ for me, and it's my first project in it. But I decided that I can write good eno
 using Spring and Kotlin official documentation. I was explicitly allowed to use Java, which I 
 know much better, but choosing Kotlin was my deliberate choice.
 
-## Things out of the scope
+## Things out of scope
 
 I intended to write code as production-ready as possible but there is a lot of things
 that I omitted and that should be included in real projects. Things out of the scope 
