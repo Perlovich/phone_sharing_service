@@ -1,6 +1,6 @@
 package com.test_task.phone_sharing_service.dtos
 
-data class PhonoapiPhoneDto(
+data class FonoapiPhoneDto(
         val DeviceName: String? = "<unknown>",
         val Brand: String? = "<unknown>",
         val cpu: String? = "<unknown>",

@@ -1,6 +1,6 @@
 package com.test_task.phone_sharing_service.services.phone_sharing_service
 
-import com.test_task.phone_sharing_service.dtos.PhonoapiPhoneDto
+import com.test_task.phone_sharing_service.dtos.FonoapiPhoneDto
 import com.test_task.phone_sharing_service.services.DateTimeService
 import com.test_task.phone_sharing_service.services.PhoneInfoService
 import com.test_task.phone_sharing_service.services.PhoneSharingService
@@ -88,16 +88,16 @@ class PhoneListTest(
     }
 
     @Test
-    fun `check that info returned from phonoapi is actually used`() {
+    fun `check that info returned from fonoapi is actually used`() {
         val phoneInfoServiceMock = Mockito.mock(PhoneInfoService::class.java)
         runBlocking {
-            Mockito.`when`(phoneInfoServiceMock.getInfoForName(Mockito.anyString())).thenReturn(PhonoapiPhoneDto(
+            Mockito.`when`(phoneInfoServiceMock.getInfoForName(Mockito.anyString())).thenReturn(FonoapiPhoneDto(
                     _3g_bands = "2100 MHz"
             ))
         }
-        val serviceWithMockedPhonoapi = PhoneSharingService(DateTimeService(), phoneInfoServiceMock, phoneSharingService.phoneRepository)
+        val serviceWithMockedFonoapi = PhoneSharingService(DateTimeService(), phoneInfoServiceMock, phoneSharingService.phoneRepository)
 
-        val result = serviceWithMockedPhonoapi.phoneList()
+        val result = serviceWithMockedFonoapi.phoneList()
 
         result[0].run {
             Assertions.assertEquals("<unknown>", _2g)

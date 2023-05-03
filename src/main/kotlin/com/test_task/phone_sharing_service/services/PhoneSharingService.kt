@@ -1,7 +1,7 @@
 package com.test_task.phone_sharing_service.services
 
 import com.test_task.phone_sharing_service.dtos.PhoneDto
-import com.test_task.phone_sharing_service.dtos.PhonoapiPhoneDto
+import com.test_task.phone_sharing_service.dtos.FonoapiPhoneDto
 import com.test_task.phone_sharing_service.entities.Phone
 import com.test_task.phone_sharing_service.exceptions.ConcurrentPhoneModificationException
 import com.test_task.phone_sharing_service.exceptions.InvalidBookerNameException
@@ -78,7 +78,7 @@ class PhoneSharingService(
         }
     }
 
-    private fun phoneEntityAndPhoneInfoToPhoneDto(phone: Phone, phoneInfo: PhonoapiPhoneDto): PhoneDto = PhoneDto(
+    private fun phoneEntityAndPhoneInfoToPhoneDto(phone: Phone, phoneInfo: FonoapiPhoneDto): PhoneDto = PhoneDto(
             phone.id,
             phone.name,
             phone.bookerName == null,

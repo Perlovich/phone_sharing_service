@@ -57,17 +57,17 @@ little time. So, I decided to explicitly list them there just to show that I'm a
 of flaws of my solution. These TODOS include:
 - Currently, if the phone is booked, it's written into the PHONES table itself. It's clearly
 bad design. There should be a separate table BOOKINGS for this.
-- When a list of phones is requested, code calls Phonoapi for more information. It's bad design.
-There are 2 much better ways to handle this: (1) request this info from Phonoapi when phones
+- When a list of phones is requested, code calls Fonoapi for more information. It's bad design.
+There are 2 much better ways to handle this: (1) request this info from Fonoapi when phones
 are added into the system. In this case we also need some mechanism to handle situations
-when calls to Phonoapi fail. (2) There can be a separate worker (scheduler) which updates
+when calls to Fonoapi fail. (2) There can be a separate worker (scheduler) which updates
 phone info from time to time. Anyway, requesting this info real-time when our API is used 
 is not a good solution.
 - PhoneSharingController is under-tested. For example, #bookPhone returns 400 
 when bookerName is empty, and it's not tested anywhere. More time is required to write such tests.
 - PhoneInfoService is under-tested. There is async logic. I need more time to test it properly.
 But I manually tested it using logs/Thread.sleep/delay, so I know it's working as expected.
-- Logging of requests to Phonoapi. Contacting 3d party API is often the most fragile part
+- Logging of requests to Fonoapi. Contacting 3d party API is often the most fragile part
 of the application. Requests/responses are often fully logged (including headers) to later
 trace problems. This can be implemented as a separate Spring service.
 - When multiple requests simultaneously try to book or return the same phone, the 409 status is
@@ -79,7 +79,7 @@ graceful ways to handle this, but more time is needed to think about it.
 Things that I find important and things that you find important may not be the same. I spent
 some time writing:
 - Validation for all possible cases.
-- Async logic to send multiple requests to Phonoapi and send them in a way that guarantees 
+- Async logic to send multiple requests to Fonoapi and send them in a way that guarantees 
 that we don't request the same phone info twice.
 - Some db logic although all of it could've been implemented in memory.
 - Integration tests for service methods.
