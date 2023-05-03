@@ -1,0 +1,10 @@
+insert into PHONE (ID, NAME) values ('f8b206ce-d5a1-11ed-afa1-0242ac120002', 'Samsung Galaxy S9');
+insert into PHONE (ID, NAME) values ('2524e910-e876-11ed-a05b-0242ac120003', 'Samsung Galaxy S8');
+insert into PHONE (ID, NAME) values ('2524ec4e-e876-11ed-a05b-0242ac120003', 'Samsung Galaxy S8');
+insert into PHONE (ID, NAME) values ('2524f0b8-e876-11ed-a05b-0242ac120003', 'Motorola Nexus 6');
+insert into PHONE (ID, NAME) values ('2524f27a-e876-11ed-a05b-0242ac120003', 'Oneplus 9');
+insert into PHONE (ID, NAME) values ('2524f428-e876-11ed-a05b-0242ac120003', 'Apple iPhone 13');
+insert into PHONE (ID, NAME) values ('2524f5ae-e876-11ed-a05b-0242ac120003', 'Apple iPhone 12');
+insert into PHONE (ID, NAME) values ('2524f734-e876-11ed-a05b-0242ac120003', 'Apple iPhone 11');
+insert into PHONE (ID, NAME) values ('2524f8e2-e876-11ed-a05b-0242ac120003', 'iPhone X');
+insert into PHONE (ID, NAME) values ('2524fa54-e876-11ed-a05b-0242ac120003', 'Nokia 3310');
