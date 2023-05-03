@@ -26,7 +26,7 @@ know much better, but choosing Kotlin was my deliberate choice.
 ## Things out of scope
 
 I intended to write code as production-ready as possible but there is a lot of things
-that I omitted and that should be included in real projects. Things out of the scope 
+that I omitted and that should be included in real projects. Things out of scope 
 comprise:
 - Any form of security. There is no authentication/authorization/CSRF protection, etc.
 - Consequently, there is no user list. When booking a phone, any booker name can be chosen.
