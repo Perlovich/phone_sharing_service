@@ -27,7 +27,7 @@ class PhoneInfoService {
     private var fonoapiToken: String? = null
 
     // The cache is never evicted or updated.
-    private val cache: MutableMap<String, FonoapiPhoneDto> = mutableMapOf()
+    private val cache: MutableMap<String, Deferred<FonoapiPhoneDto>> = mutableMapOf()
 
     private val restTemplate = RestTemplate()
 
@@ -35,24 +35,15 @@ class PhoneInfoService {
 
     private val mutex = Mutex()
 
-    private val requestsInProgress: MutableMap<String, Deferred<FonoapiPhoneDto>> = mutableMapOf()
-
     suspend fun getInfoForName(phoneName: String): FonoapiPhoneDto {
         val phoneDeferred = coroutineScope {
-            // Before making a request to 3d party API we should check if there is no other request for the same phone.
-            // If there is such a request, we should just wait until it completes.
             mutex.withLock {
-                if (requestsInProgress.contains(phoneName)) {
-                    requestsInProgress[phoneName]!!
-                } else if (cache.containsKey(phoneName)) {
-                    async { cache[phoneName]!! }
+                if (cache.containsKey(phoneName)) {
+                    cache[phoneName]!!
                 } else {
                     async {
-                        requestFonoapi(phoneName).also {
-                            cache[phoneName] = it
-                            requestsInProgress.remove(phoneName)
-                        }
-                    }.also { requestsInProgress[phoneName] = it }
+                        requestFonoapi(phoneName)
+                    }.also { cache[phoneName] = it }
                 }
             }
         }
